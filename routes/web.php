@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\\Spatie\\LaravelDashboard\\Http\\Controllers\\DashboardController@index')
+    ->middleware(config('dashboard.auth_middleware', 'auth'));
+
+Route::post('/webhook/github', '\\Spatie\\LaravelDashboard\\Http\\Controllers\\GitHubWebhookController@gitRepoReceivedPush');
