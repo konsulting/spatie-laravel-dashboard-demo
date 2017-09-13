@@ -5,15 +5,17 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "konsulting/spatie-laravel-dashboard": "^0.1.0",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "php": ">=7.0.0",
+        "konsulting/spatie-laravel-dashboard": "^0.2.0",
+        "laravel/framework": "5.5.*",
+        "laravel/tinker": "~1.0",
+        "fideloper/proxy": "~3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "~6.3",
+        "filp/whoops": "~2.0"
     },
     "autoload": {
         "classmap": [
@@ -36,19 +38,20 @@
         "post-create-project-cmd": [
             "php artisan key:generate"
         ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
-        ],
-        "laravel-echo-server": "laravel-echo-server start"
+        "laravel-echo-server": "laravel-echo-server start",
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ]
     },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
     }
 }

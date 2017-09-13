@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Spatie\LaravelDashboard\DashboardSchedule;
+use Spatie\LaravelDashboard\Console\DashboardSchedule;
 
 class Kernel extends ConsoleKernel
 {
